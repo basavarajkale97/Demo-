@@ -1,0 +1,657 @@
+show databases;
+use sql_practice;
+create table Students
+(
+ Student_ID  int Primary Key, 
+ FirstName varchar(50),
+ LastName varchar(50),
+  DateOfBirth Date,
+  EnrollmentDate Timestamp,
+  GPA Decimal(3,2),
+  IsActive Boolean
+);
+iNSERT INTO Students VALUES
+(1, 'John', 'Doe', '2001-01-01', '2020-09-01 12:00:00', 3.50, True),
+(2, 'Jane', 'Smith', '2002-06-15', '2020-09-02 10:00:00', 3.80, True),
+(3, 'Alice', 'Johnson', '2000-03-12', '2019-08-20 14:00:00', 3.20, False),
+(4, 'Bob', 'Williams', '2001-11-28', '2021-01-15 16:00:00', 3.60, True),
+(5, 'Emily', 'Davis', '2003-02-25', '2021-08-22 18:00:00', 3.90, True),
+(6, 'Michael', 'Brown', '2002-03-01', '2020-09-03 11:00:00', 3.40, True),
+(7, 'Sarah', 'Lee', '2001-05-12', '2020-09-04 09:00:00', 3.70, True),
+(8, 'William', 'Miller', '2000-08-25', '2019-09-01 13:00:00', 3.30, False),
+(9, 'Olivia', 'Martin', '2002-09-18', '2021-02-01 15:00:00', 3.85, True),
+(10, 'James', 'Wilson', '2001-04-07', '2020-10-01 12:00:00', 3.55, True);
+
+select * from Students;
+
+create table Courses
+(
+CourseID int Primary Key,
+ CourseName varchar(100),
+ Credits Integer,
+ Department varbinary(50),
+ StartDate Date,
+ EndDate Date
+ );
+INSERT INTO Courses  
+VALUES
+(1, 'Introduction to Programming', 3, 'Computer Science', '2022-01-10', '2022-03-20'),
+(2, 'Calculus I', 4, 'Mathematics', '2022-01-15', '2022-05-15'),
+(3, 'English Composition', 3, 'English', '2022-02-01', '2022-04-15'),
+(4, 'Biology I', 4, 'Biology', '2022-01-20', '2022-03-25'),
+(5, 'History of Western Civilization', 3, 'History', '2022-02-15', '2022-05-10'),
+(6, 'Principles of Marketing', 3, 'Business', '2022-03-01', '2022-05-20'),
+(7, 'Introduction to Psychology', 3, 'Psychology', '2022-01-25', '2022-04-10'),
+(8, 'Physical Science', 4, 'Physical Science', '2022-02-20', '2022-05-25'),
+(9, 'Introduction to Sociology', 3, 'Sociology', '2022-03-05', '2022-05-15'),
+(10, 'Web Development', 3, 'Computer Science', '2022-01-30', '2022-04-20'),
+(11, 'Macroeconomics', 3, 'Economics', '2022-02-25', '2022-05-20'),
+(12, 'Introduction to Philosophy', 3, 'Philosophy', '2022-03-10', '2022-05-10'),
+(13, 'Human Anatomy and Physiology', 4, 'Biology', '2022-01-10', '2022-04-25'),
+(14, 'Business Statistics', 3, 'Business', '2022-02-28', '2022-05-25'),
+(15, 'Introduction to Education', 3, 'Education', '2022-03-15', '2022-05-20');
+
+
+create table Instructors 
+(
+ InstructorID int Primary Key,
+ FirstName varchar(50),
+ LastName varchar(50),
+ HireDate Date,
+  Salary Decimal(10,2),
+  Department varchar(50),
+  IsFullTime Boolean
+);
+
+insert into Instructors
+values
+(1, 'John', 'Smith', '2010-01-01', 50000.00, 'Computer Science', True),
+(2, 'Jane', 'Doe', '2012-06-01', 60000.00, 'Mathematics', True),
+(3, 'Bob', 'Johnson', '2015-09-01', 70000.00, 'Biology', False),
+(4, 'Mary', 'Williams', '2011-08-01', 55000.00, 'English', True),
+(5, 'David', 'Lee', '2013-02-01', 58000.00, 'History', True),
+(6, 'Emily', 'Davis', '2014-05-01', 62000.00, 'Psychology', True),
+(7, 'Michael', 'Brown', '2016-01-01', 65000.00, 'Sociology', False),
+(8, 'Sarah', 'Miller', '2017-03-01', 68000.00, 'Political Science', True),
+(9, 'Joseph', 'Wilson', '2018-09-01', 70000.00, 'Economics', False),
+(10, 'Elizabeth', 'Anderson', '2019-01-01', 72000.00, 'Business', True);
+
+
+create table Departments
+(
+DepartmentID int Primary Key, 
+ DepartmentName varchar(100),
+ Location varchar(100),
+ Budget decimal(12,2)
+);
+INSERT INTO Departments 
+VALUES
+(1, 'Computer Science', 'Building A', 100000.00),
+(2, 'Mathematics', 'Building B', 80000.00),
+(3, 'Biology', 'Building C', 90000.00),
+(4, 'English', 'Building D', 70000.00),
+(5, 'History', 'Building E', 75000.00),
+(6, 'Psychology', 'Building F', 85000.00),
+(7, 'Sociology', 'Building G', 95000.00),
+(8, 'Political Science', 'Building H', 105000.00),
+(9, 'Economics', 'Building I', 110000.00),
+(10, 'Business', 'Building J', 120000.00);
+
+CREATE TABLE LibraryBooks (
+BookID int PRIMARY KEY,
+Title varchar(200),
+Author varchar(100),
+ISBN char(13),
+PublishedYear year,
+Genre varchar(50),
+CopiesAvailable int
+);
+
+INSERT INTO LibraryBooks (BookID, Title, Author, ISBN, PublishedYear, Genre, CopiesAvailable) 
+VALUES
+(1, 'To Kill a Mockingbird', 'Harper Lee', '9780061120084', 1960, 'Fiction', 5),
+(2, 'The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565', 1925, 'Fiction', 3),
+(3, '1984', 'George Orwell', '9780451524935', 1949, 'Science Fiction', 4),
+(4, 'Pride and Prejudice', 'Jane Austen', '9781853260504', 1913, 'Romance', 6),
+(5, 'The Catcher in the Rye', 'J.D. Salinger', '9780316769174', 1951, 'Fiction', 5),
+(6, 'The Lord of the Rings', 'J.R.R. Tolkien', '9780618260266', 1954, 'Fantasy', 3),
+(7, 'The Hunger Games', 'Suzanne Collins', '9780439023528', 2008, 'Science Fiction', 4),
+(8, 'The Lion, the Witch and the Wardrobe', 'C.S. Lewis', '9780064404990', 1950, 'Fantasy', 5),
+(9, 'The Picture of Dorian Gray', 'Oscar Wilde', '9781853260504', 1990, 'Fiction', 3),
+(10, 'War and Peace', 'Leo Tolstoy', '9781853260504', 1965, 'Historical Fiction', 4);
+
+CREATE TABLE Enrollments (
+EnrollmentID int PRIMARY KEY,
+StudentID int,
+CourseID int,
+EnrollmentDate Timestamp,
+Grade char(2),
+FOREIGN KEY (StudentID) REFERENCES Students(Student_ID),
+FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+INSERT INTO Enrollments (EnrollmentID, StudentID, CourseID, EnrollmentDate, Grade) 
+VALUES
+(1, 1, 1, '2022-01-01 12:00:00', 'A'),
+(2, 1, 2, '2022-01-15 12:00:00', 'B'),
+(3, 2, 1, '2022-02-01 12:00:00', 'A'),
+(4, 2, 3, '2022-03-01 12:00:00', 'C'),
+(5, 3, 2, '2022-04-01 12:00:00', 'B'),
+(6, 3, 4, '2022-05-01 12:00:00', 'A'),
+(7, 4, 1, '2022-06-01 12:00:00', 'B'),
+(8, 4, 5, '2022-07-01 12:00:00', 'C'),
+(9, 5, 3, '2022-08-01 12:00:00', 'A'),
+(10, 5, 6, '2022-09-01 12:00:00', 'B'),
+(11, 6, 2, '2022-10-01 12:00:00', 'C'),
+(12, 6, 7, '2022-11-01 12:00:00', 'A'),
+(13, 7, 4, '2022-12-01 12:00:00', 'B'),
+(14, 7, 8, '2023-01-01 12:00:00', 'C'),
+(15, 8, 5, '2023-02-01 12:00:00', 'A'),
+(16, 8, 9, '2023-03-01 12:00:00', 'B'),
+(17, 9, 6, '2023-04-01 12:00:00', 'C'),
+(18, 9, 10, '2023-05-01 12:00:00', 'A'),
+(19, 10, 7, '2023-06-01 12:00:00', 'B'),
+(20, 10, 11, '2023-07-01 12:00:00', 'C');
+
+drop table Borrowers;
+CREATE TABLE Borrowers (
+BorrowerID int PRIMARY KEY,
+FirstName varchar(50),
+LastName varchar(50),
+MembershipDate Date,
+PhoneNumber varchar(15),
+Email varchar(100)
+);
+iNSERT INTO Borrowers (BorrowerID, FirstName, LastName, MembershipDate, PhoneNumber, Email) 
+VALUES
+(1, 'John', 'Doe', '2020-01-01', '123-456-7890', 'johndoe@example.com'),
+(2, 'Jane', 'Smith', '2019-06-01', '987-654-3210', 'janesmith@example.com'),
+(3, 'Bob', 'Johnson', '2018-03-01', '555-123-4567', 'bobjohnson@example.com'),
+(4, 'Alice', 'Williams', '2017-09-01', '789-456-1234', 'alicewilliams@example.com'),
+(5, 'Mike', 'Brown', '2016-12-01', '901-234-5678', 'mikebrown@example.com'),
+(6, 'Emily', 'Davis', '2015-06-01', '678-901-2345', 'emilydavis@example.com'),
+(7, 'Sarah', 'Miller', '2014-03-01', '345-678-9012', 'sarahmiller@example.com'),
+(8, 'Tom', 'Harris', '2013-09-01', '567-890-1234', 'tomharris@example.com'),
+(9, 'Laura', 'Martin', '2012-12-01', '234-567-8901', 'lauramartin@example.com'),
+(10, 'James', 'Wilson', '2011-06-01', '890-123-4567', 'jameswilson@example.com');
+
+
+CREATE TABLE BookLoans (
+LoanID int PRIMARY KEY,
+BorrowerID int,
+BookID int,
+LoanDate Date,
+DueDate Date,
+ReturnDate Date,
+FOREIGN KEY (BorrowerID) REFERENCES Borrowers(BorrowerID),
+FOREIGN KEY (BookID) REFERENCES LibraryBooks(BookID)
+);
+INSERT INTO BookLoans (LoanID, BorrowerID, BookID, LoanDate, DueDate, ReturnDate) 
+VALUES
+(1, 1, 1, '2022-01-01', '2022-01-31', '2022-01-25'),
+(2, 2, 2, '2022-01-05', '2022-02-05', '2022-01-30'),
+(3, 3, 3, '2022-01-10', '2022-02-10', '2022-02-05'),
+(4, 4, 4, '2022-01-15', '2022-02-15', '2022-02-10'),
+(5, 5, 5, '2022-01-20', '2022-02-20', '2022-02-15'),
+(6, 6, 6, '2022-01-25', '2022-02-25', '2022-02-20'),
+(7, 7, 7, '2022-01-30', '2022-03-01', '2022-02-25'),
+(8, 8, 8, '2022-02-01', '2022-03-02', '2022-03-01'),
+(9, 9, 9, '2022-02-05', '2022-03-05', '2022-03-02'),
+(10, 10, 10, '2022-02-10', '2022-03-10', '2022-03-05');
+
+
+CREATE TABLE Events (
+EventID int PRIMARY KEY,
+EventName varchar(100),
+EventDate Date,
+StartTime Time,
+EndTime Time,
+Location varchar(100),
+Organizer varchar(100)
+);
+
+INSERT INTO Events (EventID, EventName, EventDate, StartTime, EndTime, Location, Organizer)
+ VALUES
+(1, 'Book Club Meeting', '2022-01-10', '18:00:00', '20:00:00', 'Library', 'Jane Smith'),
+(2, 'Author Reading', '2022-01-15', '14:00:00', '16:00:00', 'Bookstore', 'John Doe'),
+(3, 'Writing Workshop', '2022-01-20', '09:00:00', '12:00:00', 'Community Center', 'Sarah Johnson'),
+(4, 'Book Signing', '2022-01-25', '17:00:00', '19:00:00', 'Bookstore', 'Michael Brown'),
+(5, 'Literary Festival', '2022-02-01', '10:00:00', '18:00:00', 'Convention Center', 'Festival Organizers'),
+(6, 'Poetry Open Mic', '2022-02-05', '19:00:00', '21:00:00', 'Coffee Shop', 'Poetry Group'),
+(7, 'Book Club Discussion', '2022-02-10', '18:30:00', '20:30:00', 'Library', 'Book Club Members'),
+(8, 'Author Talk', '2022-02-15', '13:00:00', '15:00:00', 'University', 'English Department'),
+(9, 'Writing Group Meeting', '2022-02-20', '17:00:00', '19:00:00', 'Community Center', 'Writing Group'),
+(10, 'Book Launch', '2022-02-25', '18:00:00', '20:00:00', 'Bookstore', 'Publishing Company');
+
+CREATE TABLE Employees (
+EmployeeID int PRIMARY KEY,
+FirstName varchar(50),
+LastName varchar(50),
+BirthDate Date,
+HireDate Date,
+Position varchar(50),
+Salary Decimal(10, 2),
+DepartmentID int,
+FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, BirthDate, HireDate, Position, Salary, DepartmentID)
+ VALUES
+(1, 'John', 'Smith', '1990-01-01', '2015-06-01', 'Software Engineer', 80000.00, 1),
+(2, 'Jane', 'Doe', '1992-02-02', '2018-03-02', 'Marketing Manager', 90000.00, 2),
+(3, 'Bob', 'Johnson', '1985-03-03', '2012-04-03', 'Sales Representative', 70000.00, 3),
+(4, 'Alice', 'Williams', '1995-04-04', '2020-05-04', 'Data Analyst', 60000.00, 1),
+(5, 'Mike', 'Brown', '1980-05-05', '2010-06-05', 'Operations Manager', 100000.00, 4),
+(6, 'Emily', 'Davis', '1998-06-06', '2022-07-06', 'Customer Support', 50000.00, 5),
+(7, 'Sarah', 'Miller', '1988-07-07', '2014-08-07', 'Financial Analyst', 75000.00, 2),
+(8, 'Tom', 'Harris', '1975-08-08', '2008-09-08', 'IT Manager', 120000.00, 3),
+(9, 'Laura', 'Martin', '1990-09-09', '2016-10-09', 'Graphic Designer', 65000.00, 1),
+(10, 'James', 'Wilson', '1982-10-10', '2011-11-10', 'Business Development', 85000.00, 4);
+
+
+CREATE TABLE Suppliers (
+SupplierID int PRIMARY KEY,
+SupplierName varchar(100),
+ContactName varchar(50),
+ContactEmail varchar(100),
+ContactPhone varchar(15),
+Address varchar(200)
+);
+INSERT INTO Suppliers (SupplierID, SupplierName, ContactName, ContactEmail, ContactPhone, Address) 
+VALUES
+(6, 'Lima Enterprises', 'Daniel Allen', 'daniel.allen@limaenterprises.com', '678-901-2345', '345 Pine St, Thisvillage, USA'),
+(7, 'November Inc.', 'Paul Scott', 'paul.scott@novemberinc.com', '890-123-4567', '567 Cedar St, Smalltown, USA'),
+(8, 'Oscar Services', 'Nicole Garcia', 'nicole.garcia@oscarservices.com', '456-789-0123', '901 Spruce St, Othertown, USA'),
+(9, 'Papa Corporation', 'Matthew Hall', 'matthew.hall@papacorporation.com', '123-456-7890', '123 Main St, Anytown, USA'),
+(10, 'Quebec Inc.', 'Stephanie Ward', 'stephanie.ward@quebecinc.com', '987-654-3210', '456 Elm St, Othertown, USA'),
+(11, 'Romeo Enterprises', 'Joseph Allen', 'joseph.allen@romeoenterprises.com', '555-123-4567', '789 Oak St, Thistown, USA'),
+(12, 'Sierra Corporation', 'Katherine Martin', 'katherine.martin@sierracorporation.com', '901-234-5678', '901 Maple St, Thattown, USA'),
+(13, 'Tango Inc.', 'Andrew Davis', 'andrew.davis@tangoinc.com', '678-901-2345', '345 Pine St, Thisvillage, USA'),
+(14, 'Uniform Services', 'Samantha Miller', 'samantha.miller@uniformservices.com', '567-890-1234', '678 Broadway, Newcity, USA'),
+(15, 'Victor Corporation', 'Joshua Harris', 'joshua.harris@victorporation.com', '890-123-4567', '567 Cedar St, Smalltown, USA'),
+(16, 'Whiskey Inc.', 'Rebecca Thomas', 'rebecca.thomas@whiskeyinc.com', '456-789-0123', '901 Spruce St, Othertown, USA'),
+(17, 'X-ray Enterprises', 'Justin White', 'justin.white@xrayenterprises.com', '123-456-7890', '123 Main St, Anytown, USA'),
+(18, 'Yankee Corporation', 'Elizabeth Jackson', 'elizabeth.jackson@yankeecorporation.com', '987-654-3210', '456 Elm St, Othertown, USA'),
+(19, 'Zulu Inc.', 'Daniel Allen', 'daniel.allen@zuluinc.com', '555-123-4567', '789 Oak St, Thistown, USA'),
+(20, 'Alpha Bravo', 'Emily Davis', 'emily.davis@alphabravo.com', '901-234-5678', '901 Maple St, Thattown, USA');
+
+select * from Suppliers;
+
+
+
+
+CREATE TABLE Products (
+ProductID int PRIMARY KEY,
+ProductName varchar(100),
+SupplierID int,
+Category varchar(50),
+QuantityPerUnit varchar(50),
+UnitPrice Decimal(10, 2),
+UnitsInStock int,
+FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)
+);
+
+INSERT INTO Products (ProductID, ProductName, SupplierID, Category, QuantityPerUnit, UnitPrice, UnitsInStock)
+ VALUES
+(1, 'Product A', 1, 'Category 1', '10 units', 10.99, 50),
+(2, 'Product B', 2, 'Category 2', '20 units', 9.99, 75),
+(3, 'Product C', 3, 'Category 3', '15 units', 12.99, 30),
+(4, 'Product D', 4, 'Category 1', '25 units', 11.99, 60),
+(5, 'Product E', 5, 'Category 2', '30 units', 10.99, 90),
+(6, 'Product F', 6, 'Category 3', '20 units', 13.99, 40),
+(7, 'Product G', 7, 'Category 1', '15 units', 9.99, 70),
+(8, 'Product H', 8, 'Category 2', '25 units', 12.99, 85),
+(9, 'Product I', 9, 'Category 3', '30 units', 11.99, 35),
+(10, 'Product J', 10, 'Category 1', '20 units', 10.99, 55),
+(11, 'Product K', 11, 'Category 2', '15 units', 9.99, 80),
+(12, 'Product L', 12, 'Category 3', '25 units', 13.99, 45),
+(13, 'Product M', 13, 'Category 1', '30 units', 11.99, 65),
+(14, 'Product N', 14, 'Category 2', '20 units', 12.99, 95),
+(15, 'Product O', 15, 'Category 3', '15 units', 10.99, 50),
+(16, 'Product P', 16, 'Category 1', '25 units', 9.99, 70),
+(17, 'Product Q', 17, 'Category 2', '30 units', 13.99, 85),
+(18, 'Product R', 18, 'Category 3', '20 units', 11.99, 40),
+(19, 'Product S', 19, 'Category 1', '15 units', 12.99, 60),
+(20, 'Product T', 20, 'Category 2', '25 units', 10.99, 90);
+
+select * from Students;
+
+
+-- - Students Table
+-- 1. Select all columns for students where the StudentID is equal to 1.
+select * from Students where Student_ID=1;
+
+-- 2. Select the FirstName and LastName of students where the IsActive status is TRUE.
+select FirstName,LastName from Students where IsActive = True;
+
+-- 3. Select all columns for students where the GPA is equal to 3.75.
+SELECT * FROM Students where GPA = 3.75;
+
+-- 4. Select the DateOfBirth for students where the FirstName is 'Jane'.
+select DateOfBirth from Students where FirstName = 'Jane';
+
+-- 5. Select all columns for students where the EnrollmentDate is '2018-08-20 09:00:00'.
+select * from Students where EnrollmentDate = '2018-08-20 09:00:00';
+
+-- Courses Table
+select * from Courses;
+-- 1. Select all columns for courses where the CourseID is equal to 1.
+select * from  Courses where CourseID = 1;
+
+-- 2. Select the CourseName and Credits where the Department is 'Mathematics'.
+select CourseName,Credits from Courses where Department='Mathematics';
+
+-- 3. Select all columns for courses where the StartDate is '2024-01-10'.
+select * from  Courses where StartDate = '2024-01-10';
+
+-- 4. Select the EndDate for courses where the CourseName is 'World History'.
+select EndDate from Courses where CourseName = 'World History';
+
+-- 5. Select all columns for courses where the Credits is equal to 3.
+select * from Courses where Credits=3;
+
+-- Instructors Table
+select * from Instructors;
+-- 1. Select all columns for instructors where the InstructorID is equal to 1.
+select * from Instructors where InstructorID = 1;
+
+-- 2. Select the FirstName and LastName where the IsFullTime status is TRUE.
+select FirstName,LastName from Instructors where IsFullTime = TRUE;
+
+-- 3. Select all columns for instructors where the Department is 'History'.
+select * from Instructors where Department = 'History';
+
+-- 4. Select the Salary for instructors where the LastName is 'Brown'.
+select Salary from Instructors where LastName = 'Brown';
+
+-- 5. Select all columns for instructors where the HireDate is '2015-08-15'.
+select * from Instructors where HireDate = '2015-08-15';
+-- Departments Table
+show tables;
+select * from Departments;
+-- 1. Select all columns for departments where the DepartmentID is equal to 1.
+select * from Departments where DepartmentID = 1;
+
+-- 2. Select the DepartmentName and Location where the DepartmentName is 'Mathematics'.
+select DepartmentName,Location from Departments where DepartmentName ='Mathematics';
+
+-- 3. Select all columns for departments where the Location is 'Building C'.
+select * from Departments where location ='Building C';
+-- 4. Select the Budget for departments where the DepartmentID is 2.
+select •Budget from Departments where departmentID =2;
+-- 5. Select all columns for departments where the Budget is 500000.00.
+select * from Departments where •Budget = 500000.00;
+
+-- Library_Books Table
+-- 1. Select all columns for library books where the BookID is equal to 1.
+select * from librarybooks where bookID =1;
+
+-- 2. Select the Title and Author where the Genre is 'Fiction'.
+select Title,Author from librarybooks where Genre = 'Fiction';
+
+-- 3. Select all columns for library books where the ISBN is '1234567890124'.
+select * from librarybooks where ISBN = '1234567890124';
+
+-- 4. Select the PublishedYear for library books where the Title is '1984'.
+select PublishedYear from librarybooks where Title = '1984';
+
+-- 5. Select all columns for library books where the CopiesAvailable is 3.
+select * from librarybooks where CopiesAvailable =3;
+-- Borrowers Table
+select * from Borrowers;
+-- 1. Select all columns for borrowers where the BorrowerID is equal to 1.
+select * from Borrowers where BorrowerID =1;
+
+-- 2. Select the FirstName and LastName where the Email is 'sandra.bullock@example.com'.
+select FirstName,LastName from Borrowers where Email = 'sandra.bullock@example.com' ;
+
+-- 3. Select all columns for borrowers where the PhoneNumber is '555-9101'.
+select * from Borrowers where PhoneNumber = '555-9101';
+
+-- 4. Select the MembershipDate for borrowers where the LastName is 'Hanks'.
+select MembershipDate from Borrowers where LastName = 'Hanks';
+
+-- 5. Select all columns for borrowers where the FirstName is 'Will'.
+select * from Borrowers where FirstName = 'Will';
+-- Enrollments Table
+select * from Enrollments;
+-- 1. Select all columns for enrollments where the EnrollmentID is equal to 1
+select * from Enrollments where EnrollmentID = 1;
+
+-- 2. Select the StudentID and CourseID where the Grade is 'A'.
+select StudentID,CourseID  from Enrollments where Grade ='A';
+
+-- 3. Select all columns for enrollments where the StudentID is 2.
+select * from Enrollments where StudentID =2;
+
+-- 4. Select the EnrollmentDate for enrollments where the CourseID is 3.
+select EnrollmentDate from Enrollments where CourseID = 3;
+
+-- 5. Select all columns for enrollments where the Grade is 'B'.
+select * from Enrollments where Grade ='B';
+-- BookLoans Table
+ select * from BookLoans;
+-- 1. Select all columns for book loans where the LoanID is equal to 1.
+select * from BookLoans where LoanID = 1;
+
+-- 2. Select the BorrowerID and BookID where the ReturnDate is NULL.
+select BorrowerID,BookID from BookLoans where ReturnDate = null;
+
+-- 3. Select all columns for book loans where the LoanDate is '2024-06-05'.
+select * from BookLoans where LoanDate ='2024-06-05';
+
+-- 4. Select the DueDate for book loans where the BorrowerID is 3.
+select DueDate from BookLoans where BorrowerID = 3;
+
+-- 5. Select all columns for book loans where the BookID is 2.
+select * from BookLoans where BookID = 2;
+
+-- Events Table
+select * from Events;
+-- 1. Select all columns for events where the EventID is equal to 1.
+
+select * from Events where EventID = 1;
+-- 2. Select the EventName and Location where the Organizer is 'Ms. White'.
+select EventName,location from Events where Organizer = 'Ms White';
+
+-- 3. Select all columns for events where the EventDate is '2024-10-20'.
+select * from Events where EventDate = '2024-10-20';
+
+-- 4. Select the StartTime and EndTime for events where the Location is 'Auditorium'.
+select StartTime,EndTime from Events where Location = 'Auditorium';
+
+-- 5. Select all columns for events where the EventName is 'Science Fair'.
+select * from Events  where EventName = 'Science Fair';
+
+-- Employees Table
+select * from Employees;
+-- 1. Select all columns for employees where the EmployeeID is equal to 1.
+select * from Employees where EmployeeID = 1;
+-- 2. Select the FirstName and LastName where the DepartmentID is 2.
+select FirstName from Employees where DepartmentID = 2;
+CREATE TABLE Sales (
+SaleID INT PRIMARY KEY,
+Product VARCHAR(255),
+Quantity INT,
+SaleDate DATE,
+Price DECIMAL(10, 2)
+);
+
+INSERT INTO Sales (SaleID, Product, Quantity, SaleDate, Price)
+VALUES
+(1, 'Product A', 6, '2023-01-01', 10.99),
+(2, 'Product B', 9, '2023-01-15', 9.99),
+(3, 'Product C', 11, '2023-02-01', 19.99),
+(4, 'Product A', 4, '2023-01-02', 10.99),
+(5, 'Product B', 2, '2023-01-16', 9.99),
+(6, 'Product C', 3, '2023-02-02', 19.99),
+(7, 'Product A', 1, '2023-01-03', 10.99),
+(8, 'Product B', 4, '2023-01-17', 9.99),
+(9, 'Product C', 2, '2023-02-03', 19.99),
+(10, 'Product A', 3, '2023-01-04', 10.99),
+(11, 'Product B', 1, '2023-01-18', 9.99),
+(12, 'Product C', 4, '2023-02-04', 19.99),
+(13, 'Product A', 2, '2023-01-05', 10.99),
+(14, 'Product B', 3, '2023-01-19', 9.99),
+(15, 'Product C', 1, '2023-02-05', 19.99),
+(16, 'Product A', 4, '2023-01-06', 10.99),
+(17, 'Product B', 2, '2023-01-20', 9.99),
+(18, 'Product C', 3, '2023-02-06', 19.99),
+(19, 'Product A', 1, '2023-01-07', 10.99),
+(20, 'Product B', 4, '2023-01-21', 9.99),
+(21, 'Product C', 2, '2023-02-07', 19.99),
+(22, 'Product A', 3, '2023-01-08', 10.99),
+(23, 'Product B', 1, '2023-01-22', 9.99),
+(24, 'Product C', 4, '2023-02-08', 19.99),
+(25, 'Product A', 2, '2023-01-09', 10.99),
+(26, 'Product B', 3, '2023-01-23', 9.99),
+(27, 'Product C', 1, '2023-02-09', 19.99),
+(28, 'Product A', 4, '2023-01-10', 10.99),
+(29, 'Product B', 2, '2023-01-24', 9.99),
+(30, 'Product C', 3, '2023-02-10', 19.99);
+select * from sales;
+
+CREATE TABLE Person(
+ PersonID INT PRIMARY KEY, 
+ FirstName VARCHAR(50), 
+ LastName VARCHAR(50),
+ Age INT, 
+ City VARCHAR(50) ); 
+ 
+ INSERT INTO Person (PersonID, FirstName, LastName, Age, City)
+VALUES
+(1, 'John', 'Doe', 30, 'New York'),
+(2, 'Jane', 'Smith', 25, 'Los Angeles'),
+(3, 'Bob', 'Johnson', 40, 'Chicago'),
+(4, 'Alice', 'Williams', 28, 'New York'),
+(5, 'Mike', 'Brown', 35, 'Los Angeles'),
+(6, 'Emily', 'Davis', 22, 'Chicago'),
+(7, 'Sarah', 'Miller', 32, 'New York'),
+(8, 'Tom', 'Harris', 38, 'Los Angeles'),
+(9, 'Laura', 'Martin', 29, 'Chicago'),
+(10, 'James', 'Wilson', 24, 'New York'),
+(11, 'Karen', 'Anderson', 36, 'Los Angeles'),
+(12, 'Brian', 'Thomas', 31, 'Chicago'),
+(13, 'Lisa', 'Jackson', 27, 'New York'),
+(14, 'Kevin', 'White', 34, 'Los Angeles'),
+(15, 'Amy', 'Thompson', 26, 'Chicago'),
+(16, 'Chris', 'Lewis', 30, 'New York'),
+(17, 'Helen', 'Lee', 33, 'Los Angeles'),
+(18, 'Greg', 'Walker', 29, 'Chicago'),
+(19, 'Samantha', 'Hall', 25, 'New York'),
+(20, 'Daniel', 'Allen', 37, 'Los Angeles'),
+(21, 'Elizabeth', 'Hernandez', 32, 'Chicago'),
+(22, 'Megan', 'Parker', 28, 'New York'),
+(23, 'Patrick', 'Garcia', 35, 'Los Angeles'),
+(24, 'Jennifer', 'Martinez', 24, 'Chicago'),
+(25, 'Richard', 'Robinson', 31, 'New York'),
+(26, 'Maria', 'Gonzalez', 29, 'Los Angeles'),
+(27, 'Stephen', 'Mitchell', 36, 'Chicago'),
+(28, 'Nicole', 'Taylor', 27, 'New York'),
+(29, 'Anthony', 'Patel', 34, 'Los Angeles'),
+(30, 'Rebecca', 'Brooks', 26, 'Chicago');
+
+select * from person;
+-- 1. What are the details of sales where the quantity sold is greater than 5?
+select * from sales where Quantity >5;
+
+-- 2. Find all sales where the quantity sold is greater than 5.
+select  * from sales where Quantity >5;
+
+-- 3. Find all sales for 'Product A'.
+select * from sales where Product='Product A';
+
+-- 4. Find all sales that occurred in January 2023.
+select * from sales where SaleDate>= '2023-01-01' AND SaleDate <= '2023-01-31'; ;
+
+-- 5. Find all sales where the total price (quantity * price) is greater than 100.
+select  * from sales where (Quantity * Price)  > 100;
+
+-- 6. Find the total quantity sold for 'Product B'.
+select sum(Quantity) from sales where Product ='Product B';
+
+-- 7. Find the average price of products sold.
+select avg(Price) from sales;
+
+-- 8. Find the maximum quantity sold in a single sale.
+select max(Quantity) from sales;
+
+-- 9. Find the minimum quantity sold in a single sale.
+select min(Quantity) from sales;
+
+-- 10.Find the total revenue generated from 'Product C'.
+select sum(Quantity*Price)from sales where Product='Product C';
+
+-- 11.Find the number of sales for 'Product A'.
+select count(*) from Sales where Product ='Product A';
+
+-- 12.Find all persons older than 30.
+select * from Person where Age>30;
+
+-- 13.Find all persons living in 'New York'.
+select * from Person where City ='New York';
+
+-- 14.Find all persons whose last name is 'Smith'.
+select * from Person where LastName='Smith';
+
+-- 15.Find the average age of persons.
+select avg(Age)from Person;
+
+-- 16.Find the youngest person in the table.
+
+select * from Person where Age=(select min(Age) from Person); 
+
+-- 17.Find the oldest person in the table.
+select * from person where Age=(select max(Age) from Person);
+
+-- 18.Find the total number of persons living in 'San Antonio'.
+select count(*)from Person where City='San Antonio';
+
+-- 19.Find all persons whose first name starts with 'J'.
+select * from Person where FirstName like 'J%';
+
+-- 20.Find all persons whose last name ends with 'son'.
+select * from Person where LastName like '%son';
+
+-- 21.Find the total number of distinct cities in the Person table.
+select count(distinct City) from Person;
+
+-- 22.Find all sales where the quantity is between 4 and 6.
+select * from Sales where Quantity between 4 and 6 ;
+
+-- 23.Find all sales where the product is either 'Product A' or 'Product B'.
+select * from Sales where Product between 'Product A' and 'Product B' ;
+
+-- 24.Find the total revenue generated in January 2023.
+ SELECT SUM(Quantity * Price) FROM Sales WHERE SaleDate >= '2023-01-01' AND SaleDate <= '2023-01-31';
+
+-- 25.Find all persons aged 30 or older.
+select * from Person where Age>=30;
+
+-- 26.Find all sales where the product name contains the letter 'B'.
+select * from Sales where Product like '%B%';
+
+-- 27.Find the total quantity sold for each product.
+select Product ,sum(Quantity) from Sales group by Product;
+
+-- 28.Find all persons not living in 'Chicago'.
+select * from Person where City!='Chicago';
+
+-- 29.Find the average quantity sold per sale for each product.
+
+select Product,avg(Quantity) from Sales group by Product;
+
+-- 30.Find the total number of sales made on each distinct date.
+ SELECT SaleDate, COUNT(*) FROM Sales GROUP BY SaleDate;
+ 
+-- 31.Find the number of distinct products sold.
+ SELECT Product, COUNT(*) FROM Sales GROUP BY Product;
+ 
+-- 32.Find all persons whose first name is 'John' and live in 'New York'.
+ SELECT * FROM Person WHERE FirstName = 'John' AND City = 'New York';
+ 
+-- 33.Find the maximum and minimum price of products sold.
+ SELECT MAX(Price), MIN(Price) FROM Sales;
+ 
+-- 34.Find the total quantity of sales per city in the Person table assuming each person represents a sale.
+select City,sum(Quantity) from Sales join Person on Sale.PersonID = Person.PersonID group by City order by City ;
+ SELECT City, SUM(Quantity) FROM Sales JOIN Person ON Sales.PersonID = Person.PersonID GROUP BY City ORDER BY City ASC;
